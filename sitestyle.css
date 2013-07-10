@@ -1,0 +1,65 @@
+body {
+    margin: 0em;
+    font-family:"Palatino Linotype", "华文楷体", sans-serif;
+}
+
+body {
+        
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 960px;
+        min-width: 960px;
+        padding: 4px;
+        
+        background-color: silver;
+	}
+
+div {
+    background-color: #F0F8FF; 
+    /*aliceBlue*/
+}
+
+#Box {
+    padding: 1em;
+    border: 1px solid black;
+}
+
+#Content {
+	/* margin:0 29% 5ex 0em; */
+	margin: 0 29% 5ex 0em; 
+	padding: 1em;
+	}
+			
+#Content p{
+	text-indent:2em;
+	}
+
+#Menu table{
+	background-color: #eee; 
+	border:1px dashed #999; 
+	padding:0.5em;
+	}
+
+#highlight {
+    background-color: silver; 
+}
+
+
+/*#Apps {
+	position:absolute;
+	top:8ex;
+	left:72%;
+	width:0px;
+	padding:0.5em;
+	}
+	
+#Apps td {
+		font-size: small;
+	}
+
+#Weibo {
+	background-color:#eee; 
+	border:5px Dotted #999; 
+	padding:0.5em;
+	}*/
+	

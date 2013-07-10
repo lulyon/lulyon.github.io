@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+	<style type='text/css'>
+	<!-- 
+		@import url(../sitestyle.css);
+	-->
+	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="keywords" content="cyhoworld; 吃货的世界" />
+	<meta name="author" content="lu liang; 卢亮" />
+	<title>DCEL 数据结构</title>
+</head>
+<body>
+	<div id="Box">
+	<div id="Menu">
+		<table width='70%' cellpadding='0' summary='Canned page header'>
+		<tr>
+			<td width='10%' align='center'><a href='../index.html' title="Home page">Homepage</a></td>
+			<td width='10%' align='center'><a href='../weblog.html' title="Some informal essays">Weblog</a></td>
+			<td width='10%' align='center'><a href='../paper.html' title="Published or to be published papers">Paper</a></td>
+			<td width='10%' align='center'><a href='../cv.html' title="My resume">CV</a></td>
+			<td width='10%' align='center'><a href='../activity.html' title="Things I do when I am away from computer">Activity</a></td>
+			<td width='10%' align='center'><a href='../contact.html' title="How to keep contact">Contact</a></td>
+			<td width='10%' align='center'><a href='../changelog.html' title="Record of changes made to this website">Changelog</a></td>
+		</tr>
+		</table>
+		<hr />
+	</div>
+	
+	<div id="Content">
+		<h3 align="center">维基解释<abbr>DCEL</abbr>数据结构</h3>
+		<h5 align="center">2011-04-10 20:02</h5>
+
+		<h4>1、简介</h4>
+		<p>The doubly-connected edge list(DCEL)双向连接边链表是一个数据结构，
+		用来表示平面图以及三维多面体的嵌入（embedding）。 
+		这个数据结构提供了对拓扑信息（包括相关的顶点、边和面）的高效操作。
+		在许多计算几何算法中，它用于处理平面的多边形划分（polygonal subdivisions），
+		多边形划分（polygonal subdivisions）也常被称为平面扫描线图planar straight-line graphs (PSLG)。 
+		例如，Voronoi图常被表示为包围盒中的DCEL。</p>
+		<p>这个数据结构（DCEL）最初由Muller and Preparata提出，用于三维凸多面体的表示。
+		后来有人提出了一个有点不同数据结构，但“DCEL”这个名字被保留下来。</p>
+		<p>为简单起见，这里（DCEL）只考虑了连通图。但应该指出的是，DCEL也可以进行拓展以处理非连通图。</p>
+
+ 
+
+		<h4>2、数据结构</h4>
+		<p>DCEL 不仅仅是一个边集的双向链表。
+		通常情况下，DCEL包含 划分（subdivision）（即平面扫描线图，planar straight-line graphs (PSLG)） 的每条边、
+		每个顶点以及每个面的一条记录。每条记录还可能包含附加信息，比如，一个面记录中可能包含该区域的名字。
+		每条边通常与两个面相关联，所以我们可以很方便的把每条边当作半边（half-edge）。
+		每条半边（half-edge）只与一个面相关联，使用一个指针指向这个面。
+		一条半边有一个指针指向与它同面的上一条半边（previous half-edge），
+		另一个指针指向与它同面的下一条半边（next half-edge）。
+		为了到达其它边，我们可以先到半边的对偶边（twin of the half-edge），然后到达其它的面。
+		每个半边还有一个指针指向它的起点（origin vertex）。
+		（它的终点（destination vertex）可以通过查询它的对偶边的起点来得到）。</p>
+
+		<p>每个顶点v包含顶点坐标，并且还存一个指针，指向以v为起点的一条任意边。
+		每个面保存一个指针，指向这个面的外边界的一些半边（如果这个面没有边界，那么该指针为null）。
+		如果这个面还有空洞的话，它还维护一个半边的链表，对应着每个洞。
+		应该注意，如果面的顶点不包含任何值得关注的信息，那么就没有必要存储它们，
+		这样就能够节省空间并降低数据结构的复杂程度。</p>
+
+		<br />
+		译自：<a href="http://en.wikipedia.org/wiki/Doubly_connected_edge_list"><cite>Wikipedia entry: Doubly_connected_edge_list</cite></a> 
+		
+		<p align="right">（完）</p>
+		
+	</div>
+	
+	<div id="Bottom">
+		<table width='70%' cellpadding='0' summary='Canned page header'>
+		<tr>
+			<td width='20%' align='left'><a href='./housing_price.html' title="The government’s new measures on housing price">Prev</a></td>
+			<td width='30%' align='center'><a href='#Menu' title='Back to the top of this page'>Top</a></td>
+			<td width='20%' align='right'><a href='./health_comes_first.html' title="身体是革命的本钱">Next</a></td>
+		</tr>
+		</table>
+	</div>
+	
+	<div id="Copyright">
+		<hr />
+		<p> Composed with care by: <cite>lu liang</cite>. <br />
+			Last modified: <script language="JavaScript" src="../datestamp.js" type='text/javascript'></script>.<br /> 
+			 &copy; 2012 and beyond. All Right Reserved.</p>
+		
+	</div>
+	</div> <!-- div Box -->
+</body>
+</html>

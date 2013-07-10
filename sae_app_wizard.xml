@@ -1,0 +1,7 @@
+<appwizard><introduction><name></name><author>博客</author><icon></icon><homepage></homepage><description><![CDATA[个人主页]]></description></introduction><platform><services><service></service><service>Mysql</service><service>kvdb</service></services><appconfig><tpl><![CDATA[
+name: <<appname>>
+version: <<version>>
+handle:
+
+- directoryindex: cyhoworld.html
+]]></tpl></appconfig></platform><code><initScript>index.php</initScript></code></appwizard>
